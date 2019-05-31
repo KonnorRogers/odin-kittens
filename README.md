@@ -1,24 +1,27 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## Ruby version
+2.6.2
 
-* Ruby version
+## System dependencies
+Docker-ce
+Docker-compose
+Rails 5.2.3
 
-* System dependencies
+## Getting started
 
-* Configuration
+```bash
+# builds the image
+docker-compose build
 
-* Database creation
+# create the database
+docker-compose run web rails db:migrate
 
-* Database initialization
+# runs the test suite
+docker-compose -f docker-compose.test.yml run web --rm web
 
-* How to run the test suite
+# runs the server locally on port 3000
+docker-compose up
+```
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
