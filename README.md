@@ -1,5 +1,7 @@
 # README
 
+Practice working with APIs. Guidance provided by:
+[TheOdinProject working with APIs](https://www.theodinproject.com/courses/ruby-on-rails/lessons/apis)
 
 ## Ruby version
 2.6.2
