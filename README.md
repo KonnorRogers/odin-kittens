@@ -5,9 +5,9 @@
 2.6.2
 
 ## System dependencies
-Docker-ce
-Docker-compose
-Rails 5.2.3
+* Docker-ce
+* Docker-compose
+* Rails 5.2.3
 
 ## Getting started
 
