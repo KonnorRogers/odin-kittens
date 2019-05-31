@@ -1,0 +1,6 @@
+version: '3'
+services:
+  web:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && \
+                      bundle exec rails test"
