@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+george:
+  name: george
+  age: 8
+  cuteness: 7
+  softness: 6
+
+garfield:
+  name: garfield
+  age: 4
+  cuteness: 2
+  softness: 3
