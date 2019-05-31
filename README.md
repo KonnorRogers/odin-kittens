@@ -23,5 +23,8 @@ docker-compose -f docker-compose.test.yml run web --rm web
 
 # runs the server locally on port 3000
 docker-compose up
+
+# turns the container off
+docker-compose down
 ```
 
