@@ -2,4 +2,6 @@ version: '3'
 services:
   web:
     build: .
-    command: "bin/rails test"
+    environment:
+      RAILS_ENV: development
+    command: "rails test"
