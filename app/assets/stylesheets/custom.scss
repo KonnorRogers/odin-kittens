@@ -46,7 +46,9 @@ ul.navbar {
 }
 
 .field_with_errors {
+  margin-top: 1rem;
   color: #f00;
+  display: inline-block;
 }
 
 .field_with_errors input {
@@ -72,4 +74,69 @@ ul.navbar {
 
 .alert.alert-success {
   color: green;
+}
+
+/* kittens styling */
+ul.kittens {
+  list-style-type: none;
+  margin: 3rem 0;
+  padding: 0;
+  overflow: hidden;
+  width: 10rem;
+}
+
+li.kitten.attr {
+  width: 5rem;
+  text-align: right;
+  padding-left: 2rem;
+}
+
+li.kitten#name {
+  margin: auto;
+  padding-left: 0.75rem;
+  font-size: large;
+  font-weight: bold;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+li.kitten.link {
+  padding: 0.5rem;
+  width: 40%;
+  text-align: center;
+  display: inline-block;
+}
+
+li.kitten.link a {
+  padding: 0.25rem;
+  text-decoration: none;
+  &:hover {
+    color: green;
+    border: thin solid gray;
+  }
+}
+
+// kitten form styling
+.kitten-form {
+  width: 40%;
+  margin: 0;
+  padding: 0;
+}
+
+.form-kitten.name {
+  padding: 0;
+  display: inline-block;
+  margin-left: 5.5rem;
+  text-align: right;
+}
+
+.form-kitten {
+  width: 50%;
+  padding-top: 1rem;
+  text-align: right;
+}
+
+.btn {
+  width: 50%;
+  text-align: right;
 }

@@ -1,3 +1,10 @@
+<%= form_with(url: kittens_path, method: :get, local: true) do |f| %>
+  <p>
+    <%= f.text_field :search %>
+    <%= f.submit "Search" %>
+  </p>
+<% end %>
+
 <% @kittens.each do |kitten| %>
   <%= render 'kitten', kitten: kitten %>
 <% end %>

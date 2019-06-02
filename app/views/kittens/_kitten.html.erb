@@ -1,6 +1,8 @@
-  <ul>
-    <li>Name: <%= kitten.name %></li>
-    <li>Age: <%= kitten.age %></li>
-    <li>Cuteness: <%= kitten.cuteness %></li>
-    <li>Softness: <%= kitten.softness %></li>
-  </ul>
+<ul class="kittens">
+  <li class="kitten" id="name"><%= kitten.name %></li>
+  <li class="kitten attr">Age: <%= kitten.age %></li>
+  <li class="kitten attr">Cuteness: <%= kitten.cuteness %></li>
+  <li class="kitten attr">Softness: <%= kitten.softness %></li>
+  <li class="kitten link"><%= link_to "Edit", edit_kitten_path(kitten) %>
+  <li class="kitten link"><%= link_to "Delete", kitten, method: :delete, data: { confirm: "Delete #{kitten.name}?" } %></li>
+</ul>

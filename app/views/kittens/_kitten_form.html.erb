@@ -1,28 +1,27 @@
 <% @one_to_ten = (1..10).to_a.map %>
 <% @one_to_thirty = (1..30).to_a.map %>
-<%= form_with(model: @kitten, local: true) do |f| %>
+<%= form_with(model: @kitten, local: true, class: 'kitten-form') do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
-  <p>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  </p>
+  <div class="form-kitten name">  
+    <%= f.label :name %>
+    <%= f.text_field :name, placeholder: @kitten.name, size: 15 %>
+  </div>
 
-  <p>
-    <%= f.label :age %>
-    <%= f.select :age, options_for_select(@one_to_thirty,
-   params[:age])%>
-  </p>
+  <div class="form-kitten">
+    <%= f.label :age, class: "form-kitten age" %>
+    <%= f.select :age, options_for_select(@one_to_thirty, params[:age] || @kitten.age) %>
+  </div>
 
-  <p>
-    <%= f.label :cuteness %>: 
-    <%= f.select :cuteness, options_for_select(@one_to_ten, params[:cuteness]) %>
-  </p>
+  <div class="form-kitten">
+    <%= f.label :cuteness %> 
+    <%= f.select :cuteness, options_for_select(@one_to_ten, params[:cuteness] || @kitten.cuteness) %>
+  </div>
 
-  <p>
-    <%= f.label :softness %>: 
-    <%= f.select :softness, options_for_select(@one_to_ten, params[:softness]) %>
-  </p>
+  <div class="form-kitten">
+    <%= f.label :softness %> 
+    <%= f.select :softness, options_for_select(@one_to_ten, params[:softness] || @kitten.softness) %>
+  </div>
 
-  <p><%= f.submit "Create your kitten!" %></p>
+  <p class="btn"><%= f.submit "Submit" %></p>
 <% end %>

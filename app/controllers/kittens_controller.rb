@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# KittensController
 class KittensController < ApplicationController
   def new
     @kitten ||= Kitten.new
@@ -12,15 +13,20 @@ class KittensController < ApplicationController
   def create
     @kitten = Kitten.new(kitten_params)
     if @kitten.save
+      flash[:success] = 'Kitten created!'
       redirect_to @kitten
     else
-      flash[:danger] = 'Unable to save your kitten!'
+      flash.now[:danger] = 'Unable to save your kitten!'
       render 'new'
     end
   end
 
   def index
-    @kittens = Kitten.all
+    @kittens = if params[:search].blank?
+                 Kitten.all
+               else
+                 Kitten.where(name: params[:search])
+               end
   end
 
   def edit
@@ -33,13 +39,13 @@ class KittensController < ApplicationController
       flash[:success] = 'Kitten updated'
       redirect_to root_url
     else
-      flash[:danger] = 'Unable to update your kitten'
+      flash.now[:danger] = 'Unable to update your kitten'
       render 'edit'
     end
   end
 
   def destroy
-    User.find(params[:id]).destroy
+    Kitten.find(params[:id]).destroy
     flash[:success] = 'Kitten deleted!'
     redirect_to kittens_url
   end
@@ -48,6 +54,6 @@ class KittensController < ApplicationController
 
   def kitten_params
     params.require(:kitten).permit(:name, :cuteness,
-                                   :softness, :age)
+                                   :softness, :age, :search)
   end
 end
