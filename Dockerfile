@@ -7,8 +7,9 @@ RUN curl -sL https://deb.nodesource.com/setup_11.x | bash -
 RUN apt-get install -y nodejs postgresql-client
 RUN mkdir /myapp
 WORKDIR /myapp
-COPY . /myapp
+COPY Gemfile Gemfile.lock /myapp/
 RUN bundle install
+COPY . /myapp
 
 # Add a script to be executed every time the container starts.
 COPY entrypoint.sh /usr/bin/
