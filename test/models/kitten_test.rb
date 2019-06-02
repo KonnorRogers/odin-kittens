@@ -29,6 +29,11 @@ class KittenTest < ActiveSupport::TestCase
       @kitten.name = 'a' * 21
       @kitten.save
     end
+
+    assert_no_difference 'Kitten.count' do
+      @kitten.name = ' ' * 21
+      @kitten.save
+    end
   end
 
   test 'should not validate due to cuteness' do

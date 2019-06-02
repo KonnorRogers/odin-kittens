@@ -10,7 +10,15 @@
   </head>
 
   <body>
-    <%= link_to "Home", root_url %>
+    <ul class="navbar">
+      <li><%= link_to "Home", root_url %></li>
+      <li><%= link_to "Create Kitten", new_kitten_url %></li>
+    </ul>
+
+    <% flash.each do |message_type, message| %>
+        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+    <% end %>
+
     <div class="container">
     <%= yield %>
     </div>

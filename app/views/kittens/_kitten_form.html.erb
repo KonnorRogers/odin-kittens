@@ -1,6 +1,8 @@
 <% @one_to_ten = (1..10).to_a.map %>
 <% @one_to_thirty = (1..30).to_a.map %>
 <%= form_with(model: @kitten, local: true) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
   <p>
   <%= f.label :name %>
   <%= f.text_field :name %>
