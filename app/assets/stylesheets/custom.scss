@@ -107,9 +107,13 @@ li.kitten.link {
   display: inline-block;
 }
 
-li.kitten.link a {
+// li.kitten.link a {
+// }
+
+a {
   padding: 0.25rem;
   text-decoration: none;
+
   &:hover {
     color: green;
     border: thin solid gray;
@@ -138,5 +142,10 @@ li.kitten.link a {
 
 .btn {
   width: 50%;
+  text-align: right;
+}
+
+.edit-kitten-delete {
+  width: 20%;
   text-align: right;
 }

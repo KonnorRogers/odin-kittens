@@ -25,3 +25,7 @@
 
   <p class="btn"><%= f.submit "Submit" %></p>
 <% end %>
+
+<p class="edit-kitten-delete"> <%= link_to "Delete", @kitten, method: :delete, data: { confirm: "Delete #{@kitten.name}?" } %>
+</p>
+
