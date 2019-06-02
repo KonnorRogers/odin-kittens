@@ -37,3 +37,36 @@ docker-compose exec web rails console
 docker-compose down
 ```
 
+## Important notes
+```bash
+docker-compose exec web <command> 
+```
+
+Will only work with an active containers
+
+```bash
+docker-compose run --rm web rails test
+```
+
+Will spin up a new container, run rails test, and then remove the container when finished
+
+## Viewing the project
+
+```bash
+docker-compose build # if you didnt run it already
+docker-compose up # equivalent to a 'rails server'
+```
+
+View the project in the browser @ http://localhost:3000
+
+## Testing the project
+```bash
+docker-compose build # if not previously run
+docker-compose run --rm web rails test
+# or
+docker-compose build # if not previously run
+docker-compose up
+docker-compose exec web rails test  
+```
+
+```
