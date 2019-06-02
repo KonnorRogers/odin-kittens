@@ -8,6 +8,10 @@ class KittensController < ApplicationController
 
   def show
     @kitten = Kitten.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.json { render json: @kitten }
+    end
   end
 
   def create
@@ -31,7 +35,6 @@ class KittensController < ApplicationController
     respond_to do |format|
       format.html
       format.json { render json: @kittens }
-      format.xml { render xml: @kittens }
     end
   end
 

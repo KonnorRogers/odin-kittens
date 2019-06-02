@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'test_helper'
-require 'rest-client'
 
 class KittensRoutesTest < ActionDispatch::IntegrationTest
   def setup
@@ -82,9 +81,18 @@ class KittensRoutesTest < ActionDispatch::IntegrationTest
     refute flash[:success].empty?
   end
 
-  test 'should return response success for json' do
-    rsponse = RestClient.get(root_url, accept: :json)
+  test 'should return response success for json in show and index' do
+    app_json = 'application/json'
+    json_headers = {
+      'Accept' => app_json,
+      'Content-Type' => app_json
+    }
+    get kitten_path(@george), headers: json_headers
+    assert_response :success
+    assert_match response.body, @george.to_json
 
-    assert_equal rsponse.code, 200
+    get root_url, headers: json_headers
+    assert_response :success
+    assert_match(response.body, Kitten.all.to_json)
   end
 end
