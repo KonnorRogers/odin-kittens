@@ -27,6 +27,12 @@ class KittensController < ApplicationController
                else
                  Kitten.where(name: params[:search])
                end
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @kittens }
+      format.xml { render xml: @kittens }
+    end
   end
 
   def edit

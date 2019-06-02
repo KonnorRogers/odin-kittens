@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'test_helper'
+require 'rest-client'
 
 class KittensRoutesTest < ActionDispatch::IntegrationTest
   def setup
@@ -79,5 +80,11 @@ class KittensRoutesTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_url
     follow_redirect!
     refute flash[:success].empty?
+  end
+
+  test 'should return response success for json' do
+    rsponse = RestClient.get(root_url, accept: :json)
+
+    assert_equal rsponse.code, 200
   end
 end
