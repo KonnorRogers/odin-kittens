@@ -18,13 +18,20 @@ Practice working with APIs. Guidance provided by:
 docker-compose build
 
 # create the database
+docker-compose run web rails db:create
 docker-compose run web rails db:migrate
-
-# runs the test suite
-docker-compose -f docker-compose.test.yml run web --rm web
 
 # runs the server locally on port 3000
 docker-compose up
+
+# runs the test suite
+docker-compose run --rm web rails test
+docker-compose exec web rails test # Only works if container is 'up'
+
+# run a pry session
+docker-compose run web rails console
+docker-compose exec web rails console
+
 
 # turns the container off
 docker-compose down
