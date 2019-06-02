@@ -1,9 +1,0 @@
-version: '3'
-services:
-  web:
-    build: .
-    environment:
-      RAILS_ENV: test
-    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails test"
-    # volumes:
-    #   - .:/myapp
